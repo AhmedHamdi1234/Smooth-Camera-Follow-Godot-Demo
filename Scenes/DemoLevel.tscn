@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Materials/DemoFloor.tres" type="Material" id=2]
+[ext_resource path="res://Scripts/Camera_Follow.gd" type="Script" id=3]
+
+[sub_resource type="PhysicsMaterial" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 2, 0.1, 2 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.522996, 0.04681, 0.105159 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.500444, 0.04681, 0.105866 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.500444, 0.04681, 0.105866 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.500444, 0.04681, 0.105866 )
+
+[node name="DemoLevel" type="Spatial"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.061, 4.246, 30.435 )
+script = ExtResource( 3 )
+smooth_speed = 7.0
+offset = Vector3( 0, 3, 20 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.73447, 0, 0 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.23427, 0.517813, -0.822792, -0.127587, 0.8554, 0.502008, 0.963763, -0.012628, 0.266461, 1.42623, 10.2495, 0.0517139 )
+light_energy = 0.79
+light_indirect_energy = 5.17
+light_bake_mode = 2
+shadow_enabled = true
+shadow_contact = 0.41
+
+[node name="Platforms" type="Spatial" parent="."]
+
+[node name="StaticBody" type="StaticBody" parent="Platforms"]
+physics_material_override = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Platforms/StaticBody"]
+transform = Transform( 10.4308, 0, 0, 0, 20.048, 0, 0, 0, 2, 0, -2.03928, 0 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 2 )
+
+[node name="MeshInstance2" type="CollisionShape" parent="Platforms/StaticBody"]
+transform = Transform( 20.0485, 0, 0, 0, 20.0485, 0, 0, 0, 20.0485, 0, -2.03928, 0 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2" type="StaticBody" parent="Platforms"]
+transform = Transform( 0.460695, 0, 0, 0, 1, 0, 0, 0, 1, 15.3925, -4.41352, 0 )
+physics_material_override = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Platforms/StaticBody2"]
+transform = Transform( 10.4308, 0, 0, 0, 20.048, 0, 0, 0, 2, 0, -2.03928, 0 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 2 )
+
+[node name="MeshInstance2" type="CollisionShape" parent="Platforms/StaticBody2"]
+transform = Transform( 20.0485, 0, 0, 0, 20.0485, 0, 0, 0, 20.0485, 0, -2.03928, 0 )
+shape = SubResource( 4 )
+
+[node name="StaticBody3" type="StaticBody" parent="Platforms"]
+transform = Transform( 0.460695, 0, 0, 0, 1, 0, 0, 0, 1, 25.9945, 1.25261, 0 )
+physics_material_override = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Platforms/StaticBody3"]
+transform = Transform( 10.4308, 0, 0, 0, 20.048, 0, 0, 0, 2, 0, -2.03928, 0 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 2 )
+
+[node name="MeshInstance2" type="CollisionShape" parent="Platforms/StaticBody3"]
+transform = Transform( 20.0485, 0, 0, 0, 20.0485, 0, 0, 0, 20.0485, 0, -2.03928, 0 )
+shape = SubResource( 5 )
+
+[node name="StaticBody4" type="StaticBody" parent="Platforms"]
+transform = Transform( -7.50568e-08, -1, 0, 0.460695, -1.62921e-07, 0, 0, 0, 1, -13.476, 0.247571, 0 )
+physics_material_override = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Platforms/StaticBody4"]
+transform = Transform( 10.4308, 0, 0, 0, 20.048, 0, 0, 0, 2, 0, -2.03928, 0 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 2 )
+
+[node name="MeshInstance2" type="CollisionShape" parent="Platforms/StaticBody4"]
+transform = Transform( 20.0485, -4.54747e-13, 0, 2.27374e-13, 20.0485, 0, 0, 0, 20.0485, 0, -2.03928, 0 )
+shape = SubResource( 6 )
+
+[node name="StaticBody5" type="StaticBody" parent="Platforms"]
+transform = Transform( -7.50568e-08, -1, 0, 0.460695, -1.62921e-07, 0, 0, 0, 1, 29.6098, 0.247571, 0 )
+physics_material_override = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Platforms/StaticBody5"]
+transform = Transform( 10.4308, 0, 0, 0, 20.048, 0, 0, 0, 2, 0, -2.03928, 0 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 2 )
+
+[node name="MeshInstance2" type="CollisionShape" parent="Platforms/StaticBody5"]
+transform = Transform( 20.0485, -4.54747e-13, 0, 2.27374e-13, 20.0485, 0, 0, 0, 20.0485, 0, -2.03928, 0 )
+shape = SubResource( 6 )
